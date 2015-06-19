@@ -12,6 +12,7 @@ elasticsearch_path_conf: /etc/elasticsearch/conf
 elasticsearch_path_work:
 elasticsearch_path_plugins:
 elasticsearch_path_data:
+elasticsearch_path_bin: "{{ elasticsearch_install_path }}/bin"
 elasticsearch_java_home:
 elasticsearch_autostart: true
 elasticsearch_supervisor_state: started
