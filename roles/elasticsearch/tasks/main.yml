@@ -24,5 +24,7 @@
   when: elasticsearch_state == 'present'
 
 - name: Ensure Elasticsearch is running
-  supervisorctl: name=elasticsearch state=present
+  supervisorctl:
+    name: elasticsearch
+    state: started
   when: elasticsearch_supervisor_state == 'started' and elasticsearch_state == 'present'
