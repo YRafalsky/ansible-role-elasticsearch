@@ -5,5 +5,6 @@ inventory/groups
 .vagrant/
 .kitchen/
 roles/java
+roles/supervisor
 .idea/
 *.iml

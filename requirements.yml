@@ -2,3 +2,7 @@
   paths:
     - from: .
       to: roles/java
+- url: s3://sps-build-deploy/ansible/supervisor-0.0.3.tgz
+  paths:
+    - from: .
+      to: roles/supervisor
