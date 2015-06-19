@@ -1,12 +1,12 @@
-# TODO check to see if its installed first
-- name: Installing plugins
-  shell: sudo -E -u {{ elasticsearch_user }} {{ elasticsearch_install_path }}/elasticsearch/bin/plugin --install {{ item.name }}
+---
+- name: get list of installed plugins
+  shell: "{{ elasticsearch_path_bin }}/plugin --list"
+  register: elasticsearch_installed_plugins
+
+- name: install elasticsearch plugins
+  shell: "sudo -E -u {{ elasticsearch_user }} {{ elasticsearch_path_bin }}/plugin --install {{ item.package }} {{ item.options|default('') }}"
+  when: item.name is defined and item.name not in elasticsearch_installed_plugins.stdout
   environment:
     JAVA_HOME: "{{ elasticsearch_java_home }}"
-  args:
-    chdir: "{{ elasticsearch_install_path }}"
   with_items: elasticsearch_plugins
-  when: elasticsearch_plugins is defined
   ignore_errors: yes
-
-
