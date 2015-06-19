@@ -19,5 +19,6 @@
          elasticsearch_java_home: /opt/java/java8,
          elasticsearch_state: present,
          elasticsearch_plugins:
-           [ { name: elasticsearch/elasticsearch-cloud-aws/2.4.1 } ]
+           [ { name: 'cloud-aws', package: elasticsearch/elasticsearch-cloud-aws/2.4.1 },
+             { name: 'marvel', package: elasticsearch/marvel/latest } ]
        }

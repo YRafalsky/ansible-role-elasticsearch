@@ -1,2 +1,12 @@
 ---
-# vars file for example
+
+# the elasticsearch_plugins variable is a list of dictionaries.
+# dict keys:
+#   package: The package name recognized by the plugin executable
+#   name: Used to determine if the plugin exists
+#   options: Any options to run with the install command
+# Example:
+# elasticsearch_plugins:
+#   - { name: 'something',
+#       package: elasticsearch/something/latest,
+#       options: '--url http://example.com/repository/elasticsearch/plugins/something.zip' }

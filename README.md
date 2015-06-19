@@ -31,7 +31,7 @@ When including true or false for elasticsearch config variables, enclose them in
 | `elasticsearch_java_opts` | additional java options you | none | no
 | `elasticsearch_autostart` | start elasticsearch on system start | 'true' |
 | `elasticsearch_supervisor_state` | state to leave elasticsearch in after install, started or stopped | started |
-| `elasticsearch_plugins` | list of hashes containing names of plugins to install. ex - name: magical_plugin | none | no
+| `elasticsearch_plugins` | list of hashes containing names of plugins to install. ex -`{ name: magical_plugin, package: es/magical_plugin/latest }` | none | no
 | `elasticsearch_max_open_files` | set the limit for max open files for the elasticsearch_user | 64000 |
 | `elasticsearch_max_locked_memory` | set the limit for max locked memory for the elasticsearch user | unlimited |
 | `elasticsearch_heap_size` | size of the heap for elasticsearch | none* | no
