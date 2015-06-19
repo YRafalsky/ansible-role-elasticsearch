@@ -1,0 +1,21 @@
+---
+- name: add apt key
+  apt_key:
+    url: "{{ elasticsearch_repository_key }}"
+    state: present
+  when: elasticsearch_repository_key is defined
+
+- name: add elasticsearch repository
+  apt_repository:
+    repo: "deb {{ elasticsearch_repository_url }} stable main"
+    state: present
+  when: elasticsearch_repository_url is defined
+
+- name: update apt cache
+  apt:
+    update_cache: yes
+
+- name: install elasticsearch package
+  apt:
+    name: elasticsearch
+    state: present
