@@ -87,6 +87,8 @@ When including true or false for elasticsearch config variables, enclose them in
 | `elasticsearch_action_auto_create_index` | create index if it doesn't exist automatically | 'true' |
 | `elasticsearch_action_disable_delete_all_indices` | disable allowing a single call to delete all indices | 'true' |
 | `elasticsearch_conf_additional` | hash of additional configuration key: value items | none | no
+| `elasticsearch_repository_key` | repository key required for installation using apt | none | no
+| `elasticsearch_repository_url` | repository url required for installation using apt | none | no
 
 *although no value is set by default, Elasticsearch uses built-in defaults
 

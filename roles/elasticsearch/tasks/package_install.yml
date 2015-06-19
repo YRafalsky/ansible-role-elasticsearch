@@ -1,13 +1,28 @@
-- name: Add elasticsearch user
-  user: name=elasticsearch state=present
-
-- apt: name=elasticsearch={{ elasticsearch_version }} state=present
+---
+- include: package_install_apt.yml
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-  notify: Restart Elasticsearch
 
-- yum: name=elasticsearch-{{ elasticsearch_version }} state=present
+- include: package_install_yum.yml
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
-  notify: Restart Elasticsearch
+
+- name: symlink elasticsearch to opt
+  file:
+    state: link
+    src: "{{ elasticsearch_home }}"
+    dest: "{{ elasticsearch_install_path }}/elasticsearch"
+    owner: "{{ elasticsearch_user }}"
+    group: "{{ elasticsearch_user }}"
+  when: elasticsearch_home is defined
+
+- name: symlink elasticsearch to version number to match s3 install pattern
+  file:
+    state: link
+    src: "{{ elasticsearch_install_path }}/elasticsearch"
+    dest: "{{ elasticsearch_install_path }}/elasticsearch-{{ elasticsearch_version }}"
+    owner: "{{ elasticsearch_user }}"
+    group: "{{ elasticsearch_user }}"
 
 - name: Removing included scripts in favor of supervisor
-  file: path=/etc/init.d/elasticsearch state=absent
+  file:
+    path: /etc/init.d/elasticsearch
+    state: absent

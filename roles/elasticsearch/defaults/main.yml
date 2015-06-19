@@ -27,6 +27,10 @@ elasticsearch_plugin_aws_ec2_ping_timeout: 3s
 # elasticsearch_plugin_aws_secret_key:
 # elasticsearch_plugin_aws_region:
 
+# Package install - apt
+# elasticsearch_repository_key:
+# elasticsearch_repository_url:
+
 # Supervisor
 elasticsearch_supervisor_state: started
 elasticsearch_autostart: true

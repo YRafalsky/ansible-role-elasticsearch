@@ -1,5 +1,9 @@
 ---
-# Check to see if version is installed
+- name: Add elasticsearch user
+  user:
+    name: elasticsearch
+    state: present
+
 - name: Checking to see if Elasticsearch is already installed at {{ elasticsearch_install_path }}/elasticsearch-{{ elasticsearch_version }}
   stat: path={{ elasticsearch_install_path }}/elasticsearch-{{ elasticsearch_version }}/bin/elasticsearch
   register: es_installed
@@ -20,5 +24,7 @@
   when: elasticsearch_state == 'present'
 
 - name: Ensure Elasticsearch is running
-  supervisorctl: name=elasticsearch state=present
+  supervisorctl:
+    name: elasticsearch
+    state: started
   when: elasticsearch_supervisor_state == 'started' and elasticsearch_state == 'present'

@@ -1,3 +1,4 @@
+---
 - name: Ensure boto is installed
   apt: name=python-boto
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
@@ -5,9 +6,6 @@
 - name: Ensure boto is installed
   yum: name=python-boto state=present
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
-
-- name: Add elasticsearch user
-  user: name=elasticsearch state=present
 
 - name: Check for Elasticsearch {{ elasticsearch_version }} archive
   stat: path=/tmp/elasticsearch-{{ elasticsearch_version }}.tar.gz

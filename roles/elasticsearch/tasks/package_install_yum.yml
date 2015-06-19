@@ -1,0 +1,5 @@
+---
+- name: install elasticsearch package
+  yum:
+    name: "elasticsearch-{{ elasticsearch_version }}"
+    state: present

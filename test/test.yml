@@ -22,3 +22,12 @@
            [ { name: 'cloud-aws', package: elasticsearch/elasticsearch-cloud-aws/2.4.1 },
              { name: 'marvel', package: elasticsearch/marvel/latest } ]
        }
+
+- hosts: vagrant
+  roles:
+     - { role: elasticsearch,
+         elasticsearch_install_method: package,
+         elasticsearch_version: 1.6,
+         elasticsearch_repository_key: "http://packages.elasticsearch.org/GPG-KEY-elasticsearch",
+         elasticsearch_repository_url: "http://packages.elasticsearch.org/elasticsearch/{{ elasticsearch_version }}/debian"
+       }

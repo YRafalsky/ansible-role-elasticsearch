@@ -1,4 +1,8 @@
 ---
+# Package install - apt
+# elasticsearch_version: 1.6
+# elasticsearch_repository_key: "http://packages.elasticsearch.org/GPG-KEY-elasticsearch"
+# elasticsearch_repository_url: "http://packages.elasticsearch.org/elasticsearch/{{ elasticsearch_version }}/debian"
 
 # the elasticsearch_plugins variable is a list of dictionaries.
 # dict keys:
