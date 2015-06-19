@@ -35,4 +35,3 @@
   when: elasticsearch_plugins is defined
 
 - include: ulimits.yml
-
