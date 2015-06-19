@@ -1,6 +1,4 @@
-- name: Add elasticsearch user
-  user: name=elasticsearch state=present
-
+---
 - apt: name=elasticsearch={{ elasticsearch_version }} state=present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   notify: Restart Elasticsearch

@@ -1,5 +1,9 @@
 ---
-# Check to see if version is installed
+- name: Add elasticsearch user
+  user:
+    name: elasticsearch
+    state: present
+
 - name: Checking to see if Elasticsearch is already installed at {{ elasticsearch_install_path }}/elasticsearch-{{ elasticsearch_version }}
   stat: path={{ elasticsearch_install_path }}/elasticsearch-{{ elasticsearch_version }}/bin/elasticsearch
   register: es_installed
