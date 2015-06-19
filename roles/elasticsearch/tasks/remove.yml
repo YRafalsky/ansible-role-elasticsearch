@@ -1,3 +1,4 @@
+---
 # Do normal remove reinstall
 - name: Stopping Elasticsearch with supervisor
   supervisorctl: name=elasticsearch state=stopped
