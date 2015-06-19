@@ -9,4 +9,3 @@
   environment:
     JAVA_HOME: "{{ elasticsearch_java_home }}"
   with_items: elasticsearch_plugins
-  ignore_errors: yes
