@@ -124,7 +124,7 @@ discovery.zen.ping.multicast.enabled: {{ elasticsearch_discovery_zen_ping_multic
 discovery.zen.ping.unicast.hosts: {{ elasticsearch_discovery_zen_ping_unicast_hosts }}
 {% endif %}
 http.jsonp.enable: false
-{% if elasticsearch_script_disable_dynamic is defined and elasticsearch_script_disable_dynamic %}
+{% if elasticsearch_script_disable_dynamic is defined and (elasticsearch_script_disable_dynamic == "true" or elasticsearch_script_disable_dynamic == "false") %}
 script.disable_dynamic: {{ elasticsearch_script_disable_dynamic }}
 {% endif %}
 {% if elasticsearch_http_cors_enabled is defined %}
